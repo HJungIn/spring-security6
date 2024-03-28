@@ -94,7 +94,7 @@ public class SecurityConfiguration {
 
                 .authorizeHttpRequests(authorizeRequest ->
                         authorizeRequest
-                                .requestMatchers("/auth/**").hasAnyRole("USER") // TODO : 로그인 하고 권한이 있어도 여기를 못들어가는 문제
+                                .requestMatchers("/auth/**").hasAnyRole("USER")
                                 .requestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**")).permitAll() // h2-console 사용시 서블릿 컨텍스트에 h2-console과 dispatcherServlet의 두 가지 서블릿이 매핑되어 어떤 서블릿을 사용해야하는지 알 수 없어서 발생하는 오류 => 무슨 servlet(MvcRequestMatcher, AntPathRequestMatcher)을 사용할지 선택해준다.
                                 .requestMatchers("/").permitAll()
                                 .requestMatchers("/login", "/user").permitAll()
