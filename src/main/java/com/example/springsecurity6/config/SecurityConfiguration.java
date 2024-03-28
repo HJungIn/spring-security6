@@ -79,6 +79,7 @@ public class SecurityConfiguration {
                 // csrf : 공격자가 인증된 브라우저에 저장된 쿠키의 세션 정보를 활용하여 웹 서버에 사용자가 의도하지 않은 요청을 전달하는 것 => 허용 시 : GET요청을 제외한 상태를 변화시킬 수 있는 POST, PUT, DELETE 요청으로부터 보호함
                 // rest api 시 왜 disable 하는 걸까? : session 기반 인증과는 다르게 stateless하기 때문에 서버에 인증정보를 보관하지 않기 때문에
                 .csrf(AbstractHttpConfigurer::disable) // .csrf(csrfConfig -> csrfConfig.disable())
+                .csrf(Customizer.withDefaults())
 
                 // cors : 다른 도메인의 리소스에서 나의 웹 리소스에 접근할 수 있도록 허용하는 메커니즘
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
